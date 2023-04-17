@@ -12,4 +12,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm test
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: INstalar o jest
+        run: npm install --save-dev jest
+
+      - name: Rodas os testes
+        run: npm run test
