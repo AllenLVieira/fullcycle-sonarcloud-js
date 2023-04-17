@@ -15,8 +15,13 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: INstalar o jest
+      - name: Instalar o jest
         run: npm install --save-dev jest
 
       - name: Rodas os testes
         run: npm run test
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
